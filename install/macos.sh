@@ -27,13 +27,14 @@ fi
 
 log "stow symlinks"
 lb
-stow -d config -t $HOME git zshrc
-stow -d config -t $HOME/.config ghostty starship
+stow -d config -t $HOME git zshrc tmux
+stow -d config -t $HOME/.config ghostty starship nvim
 
 log "final stow symlinks"
 lb
 
 ls -ltr ~/.gitconfig
 ls -ltr ~/.zshrc
+ls -lts ~/.tmux.conf
 lb
 ls -lts ~/.config

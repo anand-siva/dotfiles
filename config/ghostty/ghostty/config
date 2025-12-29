@@ -19,3 +19,12 @@ clipboard-read = allow
 clipboard-write = allow
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
+
+# keybind these to funky characters then I can use them in tmux
+keybind = super+n=text:ç
+keybind = super+r=text:÷
+keybind = super+shift+bracket_left=text:˙
+keybind = super+shift+bracket_right=text:¬
+keybind = super+w=text:≈
+keybind = super+z=text:⌟
+
