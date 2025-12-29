@@ -29,6 +29,7 @@ log "stow symlinks"
 lb
 stow -d config -t $HOME git zshrc tmux
 stow -d config -t $HOME/.config ghostty starship nvim
+stow -d scripts -t "$HOME" tmux
 
 log "final stow symlinks"
 lb
@@ -36,5 +37,6 @@ lb
 ls -ltr ~/.gitconfig
 ls -ltr ~/.zshrc
 ls -lts ~/.tmux.conf
+ls -lts ~/tmux-scripts
 lb
 ls -lts ~/.config

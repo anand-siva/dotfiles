@@ -27,4 +27,7 @@ keybind = super+shift+bracket_left=text:˙
 keybind = super+shift+bracket_right=text:¬
 keybind = super+k=text:≈
 keybind = super+z=text:⌟
+keybind = super+p=text:▸
+keybind = super+o=text:⌁
+keybind = super+i=text:◈
 
