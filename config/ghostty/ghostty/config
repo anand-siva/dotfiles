@@ -25,6 +25,6 @@ keybind = super+n=text:ç
 keybind = super+r=text:÷
 keybind = super+shift+bracket_left=text:˙
 keybind = super+shift+bracket_right=text:¬
-keybind = super+w=text:≈
+keybind = super+k=text:≈
 keybind = super+z=text:⌟
 
