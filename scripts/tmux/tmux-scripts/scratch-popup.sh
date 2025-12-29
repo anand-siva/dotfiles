@@ -5,8 +5,8 @@ pane_path=$1
 session_name=$2
 window_name=$3
 scratch_name=${4:-scratch.md} # default filename
-popup_w=${4:-95%}
-popup_h=${5:-90%}
+popup_w=${5:-95%}
+popup_h=${6:-90%}
 
 SCRATCH_FILE="$HOME/$scratch_name"
 SCRATCH_CMD="nvim \"$SCRATCH_FILE\""
