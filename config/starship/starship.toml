@@ -1,0 +1,84 @@
+# Starship schema (optional for editor support)
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# General settings
+add_newline = false
+palette = "dracula"
+
+
+# ---- Character (prompt arrow) ----
+[character]
+success_symbol = "󰄛"
+error_symbol = "󰄛"
+
+# ---- Directory ----
+[directory]
+style = "bold green"
+truncation_length = 3
+truncate_to_repo = true
+
+# ---- Git Branch ----
+[git_branch]
+symbol = " "
+format = " [$symbol$branch]($style) "
+style = "bold yellow"
+
+# ---- Git Commit ----
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+# ---- Git State ----
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+# ---- Git Status ----
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count}"
+behind = "🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = "🛤️ ×${count}"
+stashed = "📦 "
+modified = "📝 ×${count}"
+staged = "🗃️  ×${count}"
+renamed = "📛 ×${count}"
+deleted = "🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+# ---- Kubernetes ----
+[kubernetes]
+disabled = false
+
+# ---- Hostname ----
+[hostname]
+style = "bold purple"
+
+# ---- Username ----
+[username]
+format = "[$user]($style) on "
+style_user = "bold cyan"
+
+# ---- AWS ----
+[aws]
+style = "bold orange"
+
+# ---- Command duration ----
+[cmd_duration]
+style = "bold yellow"
+
+# ---- Dracula color palette ----
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+

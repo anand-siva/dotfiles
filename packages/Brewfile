@@ -1,0 +1,11 @@
+brew "neovim"
+brew "ripgrep"
+brew "tmux"
+brew "git"
+brew "stow"
+brew "gpg"
+brew "tmux-fingers"
+cask "ghostty"
+cask "font-jetbrains-mono-nerd-font"
+brew "starship"
+

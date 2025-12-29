@@ -1,0 +1,35 @@
+[user]
+	name = Anand Siva
+	email = anand@givingtreedigital.com
+  #signingkey = <insert key>
+
+[commit]
+	gpgsign = false
+[tag]
+	gpgSign = false
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[alias]
+  a = annotate
+  br = branch
+  c = checkout
+  ca = commit --amend
+  cc = commit
+  co = checkout
+  cp = cherry-pick
+  di = diff
+  l  = whatchanged --color
+  lg = log --color --graph --pretty=format:‘%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset’ --abbrev-commit
+  rhh = reset HEAD --hard
+  ri = rebase -i
+  rim = rebase -i master
+  riom = rebase -i origin/master
+  riomain = rebase -i origin/main
+  st = status
+  poh = push -u origin HEAD
+  r = remote -v
+  recent = for-each-ref --sort=‘-committerdate’ --format=‘%(committerdate) %(refname)’ refs/heads | sed ‘s-refs/heads/--’
+  rhs = reset HEAD~1 --soft
+[pager]
+        branch = false
+
