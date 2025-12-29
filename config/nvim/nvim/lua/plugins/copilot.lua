@@ -1,13 +1,16 @@
--- lua/plugins/copilot.lua
 return {
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
+
+    -- ✅ allow :Copilot ... to exist even before InsertEnter (lazy-load on command)
+    cmd = "Copilot",
+
     config = function()
       require("copilot").setup({
         suggestion = {
-          enabled = true,
-          auto_trigger = true,
+          enabled = false, -- disabled by default
+          auto_trigger = false,
           keymap = {
             accept = "<C-j>",
             next = "<C-l>",
@@ -18,9 +21,8 @@ return {
         panel = { enabled = false },
       })
 
-      -- 🔮 Dracula pink / purple Copilot ghost text
       vim.api.nvim_set_hl(0, "CopilotSuggestion", {
-        fg = "#ff79c6", -- Dracula pink
+        fg = "#ff79c6",
         italic = true,
         nocombine = true,
       })
