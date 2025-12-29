@@ -5,11 +5,10 @@
 add_newline = false
 palette = "dracula"
 
-
 # ---- Character (prompt arrow) ----
 [character]
-success_symbol = "󰄛"
-error_symbol = "󰄛"
+success_symbol = " 󰄛  "  
+error_symbol = "󰄛  "
 
 # ---- Directory ----
 [directory]
@@ -38,10 +37,10 @@ conflicted = "⚔️ "
 ahead = "🏎️ 💨 ×${count}"
 behind = "🐢 ×${count}"
 diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-untracked = "🛤️ ×${count}"
+untracked = " ×${count} "
 stashed = "📦 "
-modified = "📝 ×${count}"
-staged = "🗃️  ×${count}"
+modified = "  ×${count} "
+staged = "🗃️ ×${count}"
 renamed = "📛 ×${count}"
 deleted = "🗑️  ×${count}"
 style = "bright-white"
@@ -50,6 +49,15 @@ format = "$all_status$ahead_behind"
 # ---- Kubernetes ----
 [kubernetes]
 disabled = false
+detect_files = ["Chart.yaml", "kustomization.yaml", "skaffold.yaml", "Tiltfile"]
+detect_folders = [".k8s", "k8s", "helm", "charts"]
+
+[ruby]
+disabled = false
+detect_files = ["Gemfile", ".ruby-version"]
+detect_extensions = []
+detect_folders = []
+detect_variables = []
 
 # ---- Hostname ----
 [hostname]
