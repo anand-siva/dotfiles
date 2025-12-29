@@ -63,11 +63,13 @@ lb
 
 stow -d config -t "$HOME" git tmux bashrc
 stow -d config -t "$HOME/.config" nvim
+stow -d scripts -t "$HOME" tmux
 
 log "current stow symlinks"
 
 ls -ltr ~/.gitconfig
 ls -ltr ~/.bashrc.d
 ls -lts ~/.tmux.conf
+ls -lts ~/tmux-scripts
 lb
 ls -lts ~/.config
