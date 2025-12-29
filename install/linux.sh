@@ -9,7 +9,7 @@ if ! command -v tree-sitter >/dev/null 2>&1; then
   log "Install tree-sitter with rust"
 
   # LLVM / Clang deps (safe if already installed)
-  sudo dnf install -y rust clang clang-devel llvm llvm-devel clang-libs
+  sudo dnf install -y clang clang-devel llvm llvm-devel clang-libs
 
   # Install Rust if missing
   if ! command -v cargo >/dev/null 2>&1; then
