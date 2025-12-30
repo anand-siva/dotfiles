@@ -4,6 +4,11 @@
 
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { silent = false })
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = false })
+vim.keymap.set("n", "<leader>r", function()
+  pcall(function()
+    require("snacks").bufdelete()
+  end)
+end, { desc = "Close buffer" })
 
 vim.keymap.set("n", "<leader>cp", function()
   -- Track state ourselves (starts disabled)
