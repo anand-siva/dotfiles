@@ -115,6 +115,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
 export SNACKS_KITTY=true
+export SNACKS_GHOSTTY=true
 
 # --- Starship prompt (MUST be last) ---
 eval "$(starship init zsh)"
