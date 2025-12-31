@@ -10,22 +10,24 @@ popup_h=${6:-90%}
 
 SCRATCH_FILE="$HOME/$scratch_name"
 SCRATCH_CMD="nvim \"$SCRATCH_FILE\""
-POPUP_NAME="scratch-$(basename "$scratch_name" | tr -cd 'a-zA-Z0-9-')"
+POPUP_WINDOW_NAME="scratch"
+POPUP_NAME="popup-$(basename "$pane_path" | tr -cd 'a-zA-Z0-9-')"
 
-# If already inside scratch popup session, toggle close / focus
-if [[ "$session_name" == "$POPUP_NAME" ]]; then
-  if [[ "$window_name" == "scratch" ]]; then
+# If we're already in a popup session (named "popup-*"), toggle within it.
+if [[ "$session_name" == popup-* ]]; then
+  if [[ "$window_name" == "$POPUP_WINDOW_NAME" ]]; then
     tmux detach-client
   else
-    tmux select-window -t "$POPUP_NAME:scratch"
+    tmux select-window -t "$session_name:$POPUP_WINDOW_NAME" 2>/dev/null ||
+      tmux new-window -t "$session_name" -n "$POPUP_WINDOW_NAME" -c "$HOME" "$SCRATCH_CMD"
   fi
 else
   # Ensure session + window exist
   tmux has-session -t "$POPUP_NAME" 2>/dev/null ||
-    tmux new-session -d -s "$POPUP_NAME" -n scratch -c "$HOME" "$SCRATCH_CMD"
+    tmux new-session -d -s "$POPUP_NAME" -n "$POPUP_WINDOW_NAME" -c "$HOME" "$SCRATCH_CMD"
 
-  tmux select-window -t "$POPUP_NAME:scratch" 2>/dev/null ||
-    tmux new-window -t "$POPUP_NAME" -n scratch -c "$HOME" "$SCRATCH_CMD"
+  tmux select-window -t "$POPUP_NAME:$POPUP_WINDOW_NAME" 2>/dev/null ||
+    tmux new-window -t "$POPUP_NAME" -n "$POPUP_WINDOW_NAME" -c "$HOME" "$SCRATCH_CMD"
 
   # Open popup attached to the session
   tmux display-popup -xC -yC -w "$popup_w" -h "$popup_h" \
