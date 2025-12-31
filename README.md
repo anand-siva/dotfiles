@@ -147,6 +147,7 @@ Custom plugins I maintain in this repo:
 | Mofiqul/dracula.nvim | Dracula colorscheme for Neovim. |
 | mason-org/mason-lspconfig.nvim | Ensures my go-to LSP servers are installed. |
 | epwalsh/obsidian.nvim | Obsidian vault workflow inside Neovim with note and link helpers. |
+| 3rd/image.nvim | Renders images inside Neovim (Markdown, docs). |
 | christoomey/vim-tmux-navigator | Seamless navigation between Neovim and tmux panes. |
 | folke/which-key.nvim | Adds a WhichKey group label for Obsidian mappings. |
 
@@ -165,3 +166,13 @@ I use `epwalsh/obsidian.nvim` to work in my Obsidian vault directly from Neovim.
 - `space + o + l` outgoing links
 - `space + o + o` open in Obsidian app
 - `space + o + s` search vault
+
+# image.nvim
+
+I use `3rd/image.nvim` with the Kitty protocol backend so images render in Ghostty. The config lives in `config/nvim/nvim/lua/plugins/image.lua` and enables Markdown image rendering with a max size for windowed display.
+
+Homebrew installs needed for image rendering:
+
+- `imagemagick`
+- `ghostscript`
+- `ghostty` (terminal that supports the Kitty graphics protocol)
