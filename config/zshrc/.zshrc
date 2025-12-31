@@ -111,5 +111,8 @@ alias c="clear"
 # ---- Your custom exports go here ----
 export GPG_TTY=$(tty)
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
 # --- Starship prompt (MUST be last) ---
 eval "$(starship init zsh)"
