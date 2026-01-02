@@ -1,6 +1,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    enabled = false,
     event = "InsertEnter",
 
     -- ✅ allow :Copilot ... to exist even before InsertEnter (lazy-load on command)
