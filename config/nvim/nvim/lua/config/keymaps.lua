@@ -24,3 +24,25 @@ vim.keymap.set("n", "<leader>cp", function()
     vim.notify("Copilot: enabled")
   end
 end, { desc = "Toggle Copilot" })
+
+-- Copy current file name / path to clipboard
+vim.keymap.set("n", "<leader>cf", function()
+  vim.fn.setreg("+", vim.fn.expand("%:t"))
+end, { desc = "Copy file name" })
+
+vim.keymap.set("n", "<leader>cp", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy full file path" })
+
+vim.keymap.set("n", "<leader>cg", function()
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  if not git_root or git_root == "" then
+    vim.notify("Not inside a git repository", vim.log.levels.WARN)
+    return
+  end
+
+  local file_path = vim.fn.expand("%:p")
+  local relative_path = file_path:gsub("^" .. git_root .. "/", "")
+
+  vim.fn.setreg("+", relative_path)
+end, { desc = "Copy path relative to git root" })
