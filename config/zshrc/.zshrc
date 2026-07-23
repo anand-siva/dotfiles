@@ -117,5 +117,7 @@ export NVM_DIR="$HOME/.nvm"
 export SNACKS_KITTY=true
 export SNACKS_GHOSTTY=true
 
+[ -f "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
+
 # --- Starship prompt (MUST be last) ---
 eval "$(starship init zsh)"
