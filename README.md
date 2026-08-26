@@ -88,6 +88,7 @@ keybind = super+shift+bracket_right=text:¬
 keybind = super+k=text:≈
 keybind = super+z=text:⌟
 keybind = super+p=text:▸
+keybind = super+l=text:◂
 keybind = super+o=text:⌁
 keybind = super+i=text:◈
 ```
@@ -109,9 +110,12 @@ set -g @popup_h "90%"
 # Scratch pad popup
 bind -n '◈' run-shell "~/tmux-scripts/scratch-popup.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' 'scratch.md' '#{@popup_w}' '#{@popup_h}'"
 
-# claude or codex popup 
+# Codex popup
 set-environment -g LLM_ASSISTANT "codex"
-bind -n '▸' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}'"
+bind -n '▸' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}' 'codex'"
+
+# Claude popup
+bind -n '◂' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}' 'claude'"
 
 # Run simple shell 
 bind -n '⌁' run-shell "~/tmux-scripts/shell-popup.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}'"
@@ -127,6 +131,7 @@ Current mapping
 super+i: scratch pad neovim popup that writes to ~/scratch.md
 super+o: seperate bash terminal to run commands
 super+p: llm (codex in my case) popup
+super+l: Claude popup
 
 # Neovim
 

@@ -121,3 +121,4 @@ export SNACKS_GHOSTTY=true
 
 # --- Starship prompt (MUST be last) ---
 eval "$(starship init zsh)"
+export PATH="$HOME/.local/bin:$PATH"

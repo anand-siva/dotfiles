@@ -4,6 +4,9 @@
 #   $1 = pane_current_path
 #   $2 = session_name
 #   $3 = window_name
+#   $4 = popup width (optional, default 95%)
+#   $5 = popup height (optional, default 90%)
+#   $6 = assistant command (optional, default $LLM_ASSISTANT or codex)
 
 pane_path=$1
 session_name=$2
@@ -11,7 +14,7 @@ window_name=$3
 popup_w=${4:-95%}
 popup_h=${5:-90%}
 
-LLM_ASSISTANT="${LLM_ASSISTANT:-codex}" # set to codex by default
+LLM_ASSISTANT="${6:-${LLM_ASSISTANT:-codex}}"
 POPUP_NAME="popup-$(basename "$pane_path" | tr -cd "a-zA-Z0-9-")"
 
 # If we're already in a popup session (named "popup-*"), toggle within it.
