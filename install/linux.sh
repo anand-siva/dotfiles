@@ -41,6 +41,43 @@ fi
 
 nvim --version
 
+log "Install tmux"
+
+TMUX_VERSION="3.7c"
+
+if ! command -v tmux >/dev/null 2>&1 || [[ "$(tmux -V)" != "tmux $TMUX_VERSION" ]]; then
+  sudo dnf install -y \
+    bison \
+    gcc \
+    libevent-devel \
+    make \
+    ncurses-devel \
+    pkgconf-pkg-config \
+    tar
+
+  (
+    set -e
+
+    TMUX_TARBALL="tmux-${TMUX_VERSION}.tar.gz"
+    TMUX_URL="https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${TMUX_TARBALL}"
+    TMUX_TMP_DIR="$(mktemp -d)"
+    trap 'rm -rf "$TMUX_TMP_DIR"' EXIT
+
+    curl -fL "$TMUX_URL" -o "$TMUX_TMP_DIR/$TMUX_TARBALL"
+    tar xzf "$TMUX_TMP_DIR/$TMUX_TARBALL" -C "$TMUX_TMP_DIR"
+    cd "$TMUX_TMP_DIR/tmux-${TMUX_VERSION}"
+    ./configure --prefix=/usr/local
+    make -j"$(nproc)"
+    sudo make install
+  )
+
+  hash -r
+else
+  echo "tmux $TMUX_VERSION already installed, skipping"
+fi
+
+tmux -V
+
 if ! command -v tree-sitter >/dev/null 2>&1; then
   log "Install tree-sitter with rust"
 
