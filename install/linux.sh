@@ -5,6 +5,42 @@ log "Installing AL2023 specific files"
 
 sudo dnf install -y texinfo
 
+log "Install Neovim"
+
+if ! command -v nvim >/dev/null 2>&1; then
+  (
+    set -e
+
+    case "$(uname -m)" in
+      x86_64)
+        NVIM_ARCH="x86_64"
+        ;;
+      aarch64 | arm64)
+        NVIM_ARCH="arm64"
+        ;;
+      *)
+        echo "Unsupported architecture for Neovim: $(uname -m)" >&2
+        exit 1
+        ;;
+    esac
+
+    NVIM_DIR="nvim-linux-${NVIM_ARCH}"
+    NVIM_TARBALL="${NVIM_DIR}.tar.gz"
+    NVIM_URL="https://github.com/neovim/neovim/releases/latest/download/${NVIM_TARBALL}"
+    NVIM_TMP_DIR="$(mktemp -d)"
+    trap 'rm -rf "$NVIM_TMP_DIR"' EXIT
+
+    curl -fL "$NVIM_URL" -o "$NVIM_TMP_DIR/$NVIM_TARBALL"
+    sudo mkdir -p /opt /usr/local/bin
+    sudo tar xzf "$NVIM_TMP_DIR/$NVIM_TARBALL" -C /opt
+    sudo ln -sfn "/opt/$NVIM_DIR/bin/nvim" /usr/local/bin/nvim
+  )
+else
+  echo "Neovim already installed, skipping"
+fi
+
+nvim --version
+
 if ! command -v tree-sitter >/dev/null 2>&1; then
   log "Install tree-sitter with rust"
 
