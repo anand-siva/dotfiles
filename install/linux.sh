@@ -61,6 +61,8 @@ lb
 log "stow symlinks"
 lb
 
+mkdir -p "$HOME/.config"
+
 stow -d config -t "$HOME" git tmux bashrc
 stow -d config -t "$HOME/.config" nvim
 stow -d scripts -t "$HOME" tmux

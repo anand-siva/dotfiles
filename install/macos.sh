@@ -27,6 +27,8 @@ fi
 
 log "stow symlinks"
 lb
+mkdir -p "$HOME/.config"
+
 stow -d config -t $HOME git zshrc tmux
 stow -d config -t $HOME/.config ghostty starship nvim
 stow -d scripts -t "$HOME" tmux
