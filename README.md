@@ -15,7 +15,7 @@ What it does:
 - Detects macOS vs Linux and runs the matching installer (`install/macos.sh` or `install/linux.sh`)
 - macOS: runs `brew bundle` with `packages/Brewfile`, installs Oh My Zsh if needed, then stows configs and scripts
 - Linux (AL2023): installs Neovim, builds the pinned upstream tmux release and GNU Stow, then stows configs and scripts
-- Runs `install/common.sh` to install TPM and the declared tmux plugins, then prints final manual steps (like `~/.gitconfig.local`)
+- Runs `install/common.sh` to install Codex CLI, Claude Code, TPM, and the declared tmux plugins, then prints final manual steps (like `~/.gitconfig.local`)
 
 Before running Stow, back up or remove any existing files that would conflict with these symlinks:
 
