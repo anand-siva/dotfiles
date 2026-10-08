@@ -17,7 +17,7 @@ return {
         enable = false,
       },
       workspaces = {
-        { name = "vault", path = "~/notes/obsidian" },
+        { name = "vault", path = "~/obsidian" },
       },
 
       -- Default location for new notes (ObsidianNew, link-follow creation, etc.)
