@@ -85,12 +85,13 @@ keybind = super+n=text:ç
 keybind = super+r=text:÷
 keybind = super+shift+bracket_left=text:˙
 keybind = super+shift+bracket_right=text:¬
-keybind = super+k=text:≈
 keybind = super+z=text:⌟
 keybind = super+p=text:▸
 keybind = super+l=text:◂
+keybind = super+k=text:✦
 keybind = super+o=text:⌁
 keybind = super+i=text:◈
+keybind = super+u=text:≈
 ```
 
 I got this directly from Seth. At first I was so confused why he was doing this. But as I continued my journey I saw why. 
@@ -117,6 +118,9 @@ bind -n '▸' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path
 # Claude popup
 bind -n '◂' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}' 'claude'"
 
+# Pi popup
+bind -n '✦' run-shell "~/tmux-scripts/llm-popup-toggle.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}' 'pi'"
+
 # Run simple shell 
 bind -n '⌁' run-shell "~/tmux-scripts/shell-popup.sh '#{pane_current_path}' '#{session_name}' '#{window_name}' '#{@popup_w}' '#{@popup_h}'"
 ```
@@ -132,6 +136,7 @@ super+i: scratch pad neovim popup that writes to ~/scratch.md
 super+o: seperate bash terminal to run commands
 super+p: llm (codex in my case) popup
 super+l: Claude popup
+super+k: Pi popup
 
 # Neovim
 
